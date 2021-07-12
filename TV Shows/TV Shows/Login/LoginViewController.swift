@@ -24,6 +24,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        labelName.text = "Brojim pritiske!"
         let delay = 3
         self.activityIndicator.startAnimating()
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(delay)) {
