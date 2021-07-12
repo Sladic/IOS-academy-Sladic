@@ -1,4 +1,5 @@
 import UIKit
+import SVProgressHUD
 
 class LoginViewController: UIViewController {
 
@@ -23,6 +24,13 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        SVProgressHUD.show()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+            SVProgressHUD.dismiss()
+        }
+        
 
         labelName.text = "Brojim pritiske!"
         let delay = 3
