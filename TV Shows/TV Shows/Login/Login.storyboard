@@ -45,7 +45,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="consolePrint:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="apE-ad-8Vd"/>
+                                    <action selector="incrementButtonActionHandler:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="WqO-Ch-Qjg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -54,7 +54,7 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="hz0-Z1-hhX" id="p50-ZY-ec8"/>
-                        <outlet property="labelName" destination="DxB-P6-wDu" id="qjC-d2-VK9"/>
+                        <outlet property="titleLabel" destination="DxB-P6-wDu" id="rZW-BU-bWF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -64,7 +64,7 @@
     </scenes>
     <color key="tintColor" systemColor="systemPurpleColor"/>
     <resources>
-        <image name="buttons_PNG28" width="1200" height="384"/>
+        <image name="buttons_PNG28" width="800" height="256"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -2,26 +2,13 @@ import UIKit
 import SVProgressHUD
 
 class LoginViewController: UIViewController {
+    
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
 
-    var numberOfTaps: Int = 0
+    @IBOutlet private weak var titleLabel: UILabel!
     
-    @IBOutlet weak var labelName: UILabel!
+    private var numberOfTaps: Int = 0
 
-    
-    @IBAction func consolePrint(_ sender: Any) {
-        self.activityIndicator.isHidden = false
-        numberOfTaps += 1
-        labelName.text = "Pritisnuli ste gumb \(numberOfTaps) puta"
-        if (numberOfTaps % 2 == 1){
-            activityIndicator.startAnimating()
-        }
-        else{
-            activityIndicator.stopAnimating()
-        }
-    }
-    
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,25 +18,25 @@ class LoginViewController: UIViewController {
             SVProgressHUD.dismiss()
         }
         
-
-        labelName.text = "Brojim pritiske!"
+        titleLabel.text = "Brojim pritiske!"
         let delay = 3
-        self.activityIndicator.startAnimating()
+        activityIndicator.startAnimating()
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(delay)) {
             self.activityIndicator.stopAnimating()
             self.activityIndicator.isHidden = true
         }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction private func incrementButtonActionHandler(_ sender: UIButton) {
+        activityIndicator.isHidden = false
+        numberOfTaps += 1
+        titleLabel.text = "Pritisnuli ste gumb \(numberOfTaps) puta"
+        
+        if activityIndicator.isAnimating {
+            activityIndicator.stopAnimating()
+        } else {
+            activityIndicator.startAnimating()
+        }
     }
-    */
-
+    
 }
