@@ -3,40 +3,24 @@ import SVProgressHUD
 
 class LoginViewController: UIViewController {
     
-    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
-
-    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var securityButton: UIButton!
+    @IBOutlet weak var rememberMeButton: UIButton!
     
-    private var numberOfTaps: Int = 0
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        SVProgressHUD.show()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3){
-            SVProgressHUD.dismiss()
-        }
-        
-        titleLabel.text = "Brojim pritiske!"
-        let delay = 3
-        activityIndicator.startAnimating()
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(delay)) {
-            self.activityIndicator.stopAnimating()
-            self.activityIndicator.isHidden = true
-        }
+        rememberMeButton.setImage(UIImage(named: "ic-checkbox-selected"), for: .selected)
+        rememberMeButton.setImage(UIImage(named: "ic-checkbox-unselected"), for: .normal)
+        securityButton.setImage(UIImage(named: "ic-invisible"), for: .selected)
+        securityButton.setImage(UIImage(named: "ic-visible"), for: .normal)
+    }
+
+    @IBAction func rememberMeSelected(_ sender: Any) {
+        rememberMeButton.isSelected.toggle()
     }
     
-    @IBAction private func incrementButtonActionHandler(_ sender: UIButton) {
-        activityIndicator.isHidden = false
-        numberOfTaps += 1
-        titleLabel.text = "Pritisnuli ste gumb \(numberOfTaps) puta"
-        
-        if activityIndicator.isAnimating {
-            activityIndicator.stopAnimating()
-        } else {
-            activityIndicator.startAnimating()
-        }
+    @IBAction func securitySelected(_ sender: Any) {
+        securityButton.isSelected.toggle()
+        passwordField.isSecureTextEntry.toggle()
     }
-    
 }

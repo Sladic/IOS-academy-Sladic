@@ -25,7 +25,7 @@ struct UserResponse: Decodable{
      var window: UIWindow?
 
      func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+        /*
         let params: [String: String] = [
             "email": "dimitar.sladic5@gmail.com",
             "password": "infinum1"
@@ -51,6 +51,8 @@ struct UserResponse: Decodable{
                     print(error)
                 }
             }
+         */
          return true
+      
      }
  }
