@@ -81,7 +81,6 @@ struct AuthInfo: Codable {
         }
     
         @IBAction func registerButtonSelected(_ sender: Any) {
-            var flag: Int = 0
             
             guard let emailText = emailField.text, !emailText.isEmpty else {
                 print("email is empty")
@@ -110,11 +109,13 @@ struct AuthInfo: Codable {
                     encoder: JSONParameterEncoder.default
                 )
                 .validate()
-                .responseDecodable(of: UserResponse.self) {response in
+                .responseDecodable(of: UserResponse.self) { [self]response in
                     switch response.result{
                     case .success(let userResponse):
                         print("Successfully registered \(userResponse.user.email)")
                         SVProgressHUD.dismiss()
+                        self.navigationController?.pushViewController(
+                            newViewCon, animated: true)
 
                     case .failure(let error):
                         SVProgressHUD.dismiss()
@@ -122,15 +123,10 @@ struct AuthInfo: Codable {
                     }
                 }
              
-            if flag == 1{
-            self.navigationController?.pushViewController(
-                newViewCon, animated: true)
-            }
         }
         
         @IBAction func loginButtonSelected(_ sender: Any) {
             
-            var flag: Int = 0
             
             guard let emailText = emailField.text, !emailText.isEmpty else {
                 print("email is empty")
@@ -159,12 +155,13 @@ struct AuthInfo: Codable {
                     encoder: JSONParameterEncoder.default
                 )
                 .validate()
-                .responseDecodable(of: UserResponse.self) {[weak self] response in
+                .responseDecodable(of: UserResponse.self) {[self] response in
                 switch response.result{
                     case .success(let userResponse):
                         let headers = response.response?.headers.dictionary ?? [:]
                         handleSuccesfulLogin(for: userResponse.user, headers: headers)
-                        flag = 1
+                        self.navigationController?.pushViewController(
+                            newViewCon, animated: true)
                     case .failure(let error):
                          print("API/Serialization failure: \(error)")
                         if error.responseCode == 401{
@@ -173,10 +170,7 @@ struct AuthInfo: Codable {
                         SVProgressHUD.dismiss()
                 }
             }
-            if flag == 1{
-            self.navigationController?.pushViewController(
-                newViewCon, animated: true)
-            }
+
             
             func handleSuccesfulLogin(for user: User, headers: [String: String]) {
                 guard let authInfo = try? AuthInfo(headers: headers) else {
