@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WgN-zZ-cV2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -147,6 +147,9 @@
                                                                 <integer key="value" value="19"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="loginButtonSelected:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="K3K-ef-S3n"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eoM-FI-Wty">
                                                         <rect key="frame" x="0.0" y="58" width="374" height="38"/>
@@ -154,6 +157,9 @@
                                                         <state key="normal" title="Register">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="registerButtonSelected:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="diB-qW-h5D"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -200,15 +206,37 @@
                             <constraint firstItem="CPd-d5-pSY" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="sSA-1l-4ur"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ZtI-7i-iIu"/>
                     <connections>
+                        <outlet property="emailField" destination="7AF-aZ-i2u" id="7mT-KF-QBm"/>
+                        <outlet property="loginButton" destination="WCz-qg-fgp" id="uTx-DF-sUg"/>
                         <outlet property="passwordField" destination="qy6-YD-TNa" id="8ug-tG-4YN"/>
+                        <outlet property="registerButton" destination="eoM-FI-Wty" id="o5m-Rx-UYP"/>
                         <outlet property="rememberMeButton" destination="fnS-5i-FTz" id="MiA-7B-xaz"/>
                         <outlet property="securityButton" destination="dXw-s9-c5d" id="W3w-9R-O6S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="28.985507246376812" y="26.785714285714285"/>
+            <point key="canvasLocation" x="1849.2753623188407" y="26.785714285714285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3NX-Uk-Qee">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WgN-zZ-cV2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="giP-Zk-pd8">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="g2S-Nv-GrA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z81-LY-61N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="939.13043478260875" y="26.785714285714285"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.32156862745098036" green="0.21176470588235294" blue="0.5490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
