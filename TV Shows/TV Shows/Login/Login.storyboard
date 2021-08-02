@@ -77,18 +77,18 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fx1-VW-aCK">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="password" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qy6-YD-TNa">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="305" height="50"/>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="password" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qy6-YD-TNa">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
                                                                         <color key="backgroundColor" red="0.32156862749999998" green="0.21176470589999999" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                                     </textField>
-                                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXw-s9-c5d">
-                                                                        <rect key="frame" x="309" y="0.0" width="65" height="50"/>
+                                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXw-s9-c5d">
+                                                                        <rect key="frame" x="350" y="0.0" width="24" height="50"/>
                                                                         <state key="normal" image="ic-invisible"/>
                                                                         <connections>
-                                                                            <action selector="securitySelected:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="XNV-NX-TnT"/>
+                                                                            <action selector="securitySelected:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="2GH-5o-Boz"/>
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
@@ -210,6 +210,7 @@
                     <connections>
                         <outlet property="emailField" destination="7AF-aZ-i2u" id="7mT-KF-QBm"/>
                         <outlet property="loginButton" destination="WCz-qg-fgp" id="uTx-DF-sUg"/>
+                        <outlet property="loginView" destination="5EZ-qb-Rvc" id="TQV-Lk-jyU"/>
                         <outlet property="passwordField" destination="qy6-YD-TNa" id="8ug-tG-4YN"/>
                         <outlet property="registerButton" destination="eoM-FI-Wty" id="o5m-Rx-UYP"/>
                         <outlet property="rememberMeButton" destination="fnS-5i-FTz" id="MiA-7B-xaz"/>
