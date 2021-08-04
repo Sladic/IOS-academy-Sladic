@@ -7,6 +7,7 @@ class HomeViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     var authInfo: AuthInfo!
     var userResponse: UserResponse!
+    var instanceOfUser: UserResponse!
     var showsResponsePermanent: ShowsResponse? {
         didSet {
             tableView.reloadData()
@@ -97,11 +98,33 @@ extension HomeViewController{
             tableView.dataSource = self
         }
     private func navBarSetup(){
-        //let backBarButtonItem = UIBarButtonItem(title: "Shows", style: .plain, target: nil, action: nil)
         navigationController?.setNavigationBarHidden(false, animated: true)
         self.title = "Shows"
-        //navigationItem.backBarButtonItem = backBarButtonItem
         navigationItem.setHidesBackButton(true, animated: true)
+        let profileDetailsItem = UIBarButtonItem(
+            image: UIImage(named: "ic-profile"),
+            style: .plain,
+            target: self,
+            action: #selector(profileDetailsActionHandler)
+        )
+        profileDetailsItem.tintColor = UIColor.gray
+        navigationItem.rightBarButtonItem = profileDetailsItem
+        }
+    
+        @objc
+        private func profileDetailsActionHandler(){
+            
+            let storyboard = UIStoryboard(name: "UserProfile", bundle: .main)
+            let profileViewController = storyboard
+                .instantiateViewController(
+                    withIdentifier: "userProfile"
+                ) as! UserProfileController
+            
+            let navigationController = UINavigationController(rootViewController: profileViewController)
+
+            profileViewController.authInfo = authInfo
+            present(navigationController, animated: true, completion: nil)
+            
         }
     }
 
